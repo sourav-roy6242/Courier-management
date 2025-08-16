@@ -1,0 +1,59 @@
+<div class="form-container">
+    <h2 class="form-title">Add New Courier</h2>
+    
+    <form (ngSubmit)="addCourier()">
+      <div class="form-group">
+        <label for="sender">Sender</label>
+        <input 
+          type="text" 
+          id="sender" 
+          [(ngModel)]="newCourier.sender" 
+          name="sender" 
+          required
+          placeholder="Enter sender name">
+      </div>
+  
+      <div class="form-group">
+        <label for="recipient">Recipient</label>
+        <input 
+          type="text" 
+          id="recipient" 
+          [(ngModel)]="newCourier.recipient" 
+          name="recipient" 
+          required
+          placeholder="Enter recipient name">
+      </div>
+  
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input 
+          type="text" 
+          id="address" 
+          [(ngModel)]="newCourier.address" 
+          name="address" 
+          required
+          placeholder="Enter delivery address">
+      </div>
+  
+      <div class="form-group">
+        <label for="weight">Weight (kg)</label>
+        <input 
+          type="number" 
+          id="weight" 
+          [(ngModel)]="newCourier.weight" 
+          name="weight" 
+          step="0.1"
+          required
+          placeholder="Enter package weight">
+      </div>
+  
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+  
+      <div class="button-group">
+        <button type="submit" class="submit-btn">Submit</button>
+        <button type="button" class="cancel-btn" (click)="cancel()">Cancel</button>
+      </div>
+    </form>
+  </div>

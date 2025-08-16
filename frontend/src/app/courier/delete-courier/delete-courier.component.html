@@ -1,0 +1,16 @@
+<div class="delete-container">
+    <h2>Delete Courier</h2>
+    <div class="form-group">
+      <label>Courier you want delete:</label>
+      <select [(ngModel)]="selectedCourierId">
+        <option [value]="null" disabled selected>Courier you want delete</option>
+        <option *ngFor="let courier of couriers" [value]="courier.id">
+          ID: {{ courier.id }} - {{ courier.sender }} to {{ courier.recipient }}
+        </option>
+      </select>
+    </div>
+    <div class="button-group">
+      <button (click)="deleteCourier()" [disabled]="!selectedCourierId">Delete</button>
+      <button (click)="goBack()">Back to Home</button>
+    </div>
+  </div>

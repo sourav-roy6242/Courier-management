@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    container_name: courier-backend
+    ports:
+      - "5000:5000"
+    networks:
+      - courier-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: courier-frontend
+    ports:
+      - "4200:80"
+    depends_on:
+      - backend
+    networks:
+      - courier-network
+
+networks:
+  courier-network:
+    driver: bridge

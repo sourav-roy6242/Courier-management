@@ -1,0 +1,39 @@
+<div class="courier-list-container">
+    <h2>Courier List</h2>
+    
+    <div *ngFor="let courier of couriers" class="courier-card">
+      <div class="courier-header">
+        <span class="courier-title">Shipment {{ courier.id }}</span>
+        <span class="courier-id">ID: {{ courier.id }}</span>
+      </div>
+      
+      <div class="courier-details">
+        <div class="detail-group">
+          <div class="detail-label">Sender</div>
+          <div class="detail-value">{{ courier.sender }}</div>
+        </div>
+        
+        <div class="detail-group">
+          <div class="detail-label">Recipient</div>
+          <div class="detail-value">{{ courier.recipient }}</div>
+        </div>
+        
+        <div class="detail-group">
+          <div class="detail-label">Address</div>
+          <div class="detail-value">{{ courier.address }}</div>
+        </div>
+        
+        <div class="detail-group">
+          <div class="detail-label">Weight</div>
+          <div class="detail-value">{{ courier.weight }} kg</div>
+        </div>
+        
+        <div class="detail-group">
+          <div class="detail-label">Charges</div>
+          <div class="detail-value charges">₹{{ courier.charges }}</div>
+        </div>
+      </div>
+    </div>
+  
+    <button class="back-button" (click)="goBack()">Back to Home</button>
+  </div>
