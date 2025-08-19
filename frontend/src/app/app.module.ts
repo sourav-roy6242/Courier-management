@@ -11,6 +11,7 @@ import { ListCourierComponent } from './courier/list-courier/list-courier.compon
 import { DeleteCourierComponent } from './courier/delete-courier/delete-courier.component';
 import { CourierService } from './courier/courier.service';
 
+
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'add', component: AddCourierComponent },
@@ -25,7 +26,8 @@ const routes: Routes = [
     HomeComponent,
     AddCourierComponent,
     ListCourierComponent,
-    DeleteCourierComponent
+    DeleteCourierComponent,
+  
   ],
   imports: [
     BrowserModule,
