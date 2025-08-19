@@ -1,7 +1,9 @@
 from flask import Flask, request, jsonify, make_response
+from werkzeug.security import generate_password_hash, check_password_hash
 from flask_restful import Api, Resource
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
+import re
 
 app = Flask(__name__)
 
@@ -37,6 +39,19 @@ class Courier(db.Model):
             'weight': self.weight,
             'charges': self.charges
         }
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)  
+    user_id_number = db.Column(db.String(20), unique=True, nullable=False)  
+    full_name = db.Column(db.String(80), nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    password_hash = db.Column(db.String(128), nullable=False)
+
+    def set_password(self, password):
+        self.password_hash = generate_password_hash(password)
+
+    def check_password(self, password):
+        return check_password_hash(self.password_hash, password)
 
 
 def calculate_charges(weight):
@@ -95,6 +110,113 @@ class CourierDeleteResource(Resource):
 
 api.add_resource(CourierResource, '/api/couriers')
 api.add_resource(CourierDeleteResource, '/api/couriers/<int:courier_id>')
+
+# signup endpoints
+
+@app.route('/api/signup', methods=['POST'])
+def signup():
+    data = request.get_json()
+
+    full_name = data.get('full_name', '').strip()
+    email = data.get('email', '').strip()
+    password = data.get('password', '')
+    confirm_password = data.get('confirm_password', '')
+
+    if not full_name or not email or not password or not confirm_password:
+        return make_response(jsonify({'error': 'All fields are required'}), 400)
+
+    if not re.match(r"[^@]+@[^@]+\.[^@]+", email):
+        return make_response(jsonify({'error': 'Invalid email format'}), 400)
+
+    if password != confirm_password:
+        return make_response(jsonify({'error': 'Passwords do not match'}), 400)
+
+    if User.query.filter_by(email=email).first():
+        return make_response(jsonify({'error': 'Email already registered'}), 400)
+
+    # Generate user ID like USR1001
+    last_user = User.query.order_by(User.id.desc()).first()
+    next_id = 1001 if not last_user else 1001 + last_user.id
+    user_id_number = f"USR{next_id}"
+
+    new_user = User(
+        user_id_number=user_id_number,
+        full_name=full_name,
+        email=email
+    )
+    new_user.set_password(password)
+
+    db.session.add(new_user)
+    db.session.commit()
+
+    return make_response(jsonify({'message': 'User registered successfully', 'user_id_number': user_id_number}), 201)
+
+
+# login endpoints
+
+@app.route('/api/login', methods=['POST'])
+def login():
+    data = request.get_json()
+
+    email = data.get('email', '').strip()
+    password = data.get('password', '')
+
+    if not email or not password:
+        return make_response(jsonify({'error': 'Email and password are required'}), 400)
+
+    user = User.query.filter_by(email=email).first()
+
+    if user and user.check_password(password):
+        return make_response(jsonify({'message': 'Login successful', 'user_id_number': user.user_id_number}), 200)
+    else:
+        return make_response(jsonify({'error': 'Invalid email or password'}), 401)
+    
+
+@app.route('/api/login', methods=['OPTIONS'])
+def login_options():
+    response = make_response()
+    response.headers.add('Access-Control-Allow-Origin', 'http://localhost:4200')
+    response.headers.add('Access-Control-Allow-Methods', 'POST, OPTIONS')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
+    return response
+
+    # Get user by ID number endpoint
+
+@app.route('/api/user/<user_id_number>', methods=['GET'])
+def get_user_by_id(user_id_number):
+    user = User.query.filter_by(user_id_number=user_id_number).first()
+
+    if not user:
+        return make_response(jsonify({'error': 'User not found'}), 404)
+
+    return jsonify({
+        'user_id_number': user.user_id_number,
+        'full_name': user.full_name,
+        'email': user.email
+    })
+
+@app.route('/api/users', methods=['GET'])
+def get_all_users():
+    users = User.query.all()
+    user_list = []
+    for user in users:
+        user_list.append({
+            'user_id_number': user.user_id_number,
+            'full_name': user.full_name,
+            'email': user.email
+        })
+    return jsonify(user_list)
+
+
+
+@app.route('/api/signup', methods=['OPTIONS'])
+def signup_options():
+    response = make_response()
+    response.headers.add('Access-Control-Allow-Origin', 'http://localhost:4200')
+    response.headers.add('Access-Control-Allow-Methods', 'POST, OPTIONS')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
+    return response
+
 
 with app.app_context():
     db.create_all()

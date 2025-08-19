@@ -1,0 +1,133 @@
+.profile-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #fff;
+    box-shadow: 0 4px 20px rgb(0 0 0 / 0.1);
+    border-radius: 12px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    color: #222;
+    font-weight: 700;
+    font-size: 28px;
+  }
+  
+  .tabs {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 25px;
+  }
+  
+  .tabs button {
+    flex: 1;
+    background: #f4f4f4;
+    border: none;
+    padding: 12px 15px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #555;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .tabs button:hover {
+    background: #ddd;
+  }
+  
+  .tabs button.active {
+    background: #007bff;
+    color: #fff;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgb(0 123 255 / 0.5);
+  }
+  
+  .tab-content h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .details-tab p {
+    font-size: 18px;
+    margin-bottom: 12px;
+    color: #444;
+  }
+  
+  .orders-tab table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+  }
+  
+  .orders-tab th, .orders-tab td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .orders-tab th {
+    background: #f9f9f9;
+    color: #555;
+    font-weight: 600;
+  }
+  
+  .orders-tab tr:hover {
+    background: #f1f7ff;
+  }
+  
+  .settings-tab form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 400px;
+  }
+  
+  .settings-tab label {
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #555;
+  }
+  
+  .settings-tab input {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+  
+  .btn-save {
+    width: fit-content;
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-save:hover {
+    background: #0056b3;
+  }
+  
+  .btn-logout {
+    margin-top: 30px;
+    padding: 10px 25px;
+    border-radius: 8px;
+    border: none;
+    background: #dc3545;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-logout:hover {
+    background: #a71d2a;
+  }
+  

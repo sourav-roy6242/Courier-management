@@ -1,0 +1,40 @@
+<div class="checkout-wrapper">
+    <section class="courier-section">
+      <h2>Your Couriers</h2>
+      <div *ngIf="couriers.length; else emptyState">
+        <div *ngFor="let courier of couriers" class="courier-card">
+          <div class="courier-header">
+            <h3>{{ courier.sender }} → {{ courier.recipient }}</h3>
+            <span class="status">{{ courier.status }}</span>
+          </div>
+          <p class="desc">{{ courier.description }}</p>
+          <div class="details">
+            <div><strong>Weight:</strong> {{ courier.weight || 'N/A' }} kg</div>
+            <div><strong>Charges:</strong> ₹{{ courier.charges || '0.00' }}</div>
+          </div>
+        </div>
+      </div>
+      <ng-template #emptyState>
+        <p class="empty-message">No couriers found. Please add some courier details.</p>
+      </ng-template>
+    </section>
+  
+   
+    <section class="billing-section">
+      <h2>Billing Summary</h2>
+      <div class="billing-card">
+        <div *ngFor="let courier of couriers" class="billing-item">
+          <span>{{ courier.sender }} → {{ courier.recipient }}</span>
+          <span>₹{{ courier.charges || 0 }}</span>
+        </div>
+        <hr />
+        <div class="billing-total">
+          <span>Total</span>
+          <span>₹{{ totalCharges }}</span>
+
+        </div>
+        <button class="confirm-btn" (click)="confirmCheckout()">Payment</button>
+      </div>
+    </section>
+  </div>
+  

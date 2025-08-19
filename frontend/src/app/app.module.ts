@@ -12,6 +12,12 @@ import { DeleteCourierComponent } from './courier/delete-courier/delete-courier.
 import { CourierService } from './courier/courier.service';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { LoginComponent } from './auth/login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CheckoutComponent } from './courier/checkout/checkout.component';
+import { ProfileComponent } from './profile/profile.component';
+
 
 
 
@@ -20,6 +26,10 @@ const routes: Routes = [
   { path: 'add', component: AddCourierComponent },
   { path: 'list', component: ListCourierComponent },
   { path: 'delete', component: DeleteCourierComponent },
+  { path: 'register', component: RegisterComponent }, 
+  { path: 'login', component: LoginComponent },   
+  { path: 'checkout', component: CheckoutComponent },
+  { path: 'profile', component: ProfileComponent },
   { path: '**', redirectTo: '' }
 ];
 
@@ -32,6 +42,12 @@ const routes: Routes = [
     DeleteCourierComponent,
     AboutUsComponent,
     ContactUsComponent,
+    RegisterComponent,
+    LoginComponent,
+    RegisterComponent,
+    LoginComponent,
+    CheckoutComponent,
+    ProfileComponent,
 
   
   ],
@@ -39,6 +55,7 @@ const routes: Routes = [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [CourierService],

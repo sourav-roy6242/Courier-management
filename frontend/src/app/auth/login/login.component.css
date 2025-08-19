@@ -1,0 +1,93 @@
+.login-form {
+    max-width: 400px;
+    margin: 60px auto;
+    padding: 35px 40px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .login-form h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 28px;
+  }
+  
+  .form-group {
+    margin-bottom: 22px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1.8px solid #ccc;
+    border-radius: 6px;
+    transition: 0.3s;
+  }
+  
+  .form-group input:focus {
+    border-color: #1976d2;
+    outline: none;
+    box-shadow: 0 0 6px rgba(25, 118, 210, 0.3);
+  }
+  
+  .error {
+    margin-top: 6px;
+    font-size: 13px;
+    color: #d32f2f;
+  }
+  
+  button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #1976d2;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button[type="submit"]:hover:not(:disabled) {
+    background-color: #155a9c;
+  }
+  
+  button[type="submit"]:disabled {
+    background-color: #90caf9;
+    cursor: not-allowed;
+  }
+  
+  /* Register prompt */
+  .register-prompt {
+    margin-top: 18px;
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .register-prompt a {
+    color: #1976d2;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 4px;
+    transition: color 0.3s;
+  }
+  
+  .register-prompt a:hover {
+    color: #0d47a1;
+    text-decoration: underline;
+  }
+  

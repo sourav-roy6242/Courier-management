@@ -1,0 +1,169 @@
+
+.checkout-wrapper {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 24px;
+    display: flex;
+    gap: 48px;
+    flex-wrap: wrap;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+  }
+  
+  
+  .courier-section {
+    flex: 2;
+  }
+  
+  .courier-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: #222;
+  }
+  
+  .courier-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .courier-card:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.15);
+  }
+  
+  .courier-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  
+  .courier-header h3 {
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: #004085;
+  }
+  
+  .status {
+    background-color: #81ca4c;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .desc {
+    font-size: 1rem;
+    color: #000000;
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+  
+  .details {
+    display: flex;
+    gap: 24px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: #237589;
+  }
+  
+  .empty-message {
+    color: #888;
+    font-style: italic;
+    margin-top: 40px;
+    font-size: 1.1rem;
+    text-align: center;
+  }
+  
+  /* Billing Section */
+  .billing-section {
+    flex: 1;
+    background: #f8f9fa;
+    padding: 32px 24px;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.07);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .billing-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 24px;
+    font-weight: 700;
+    color: #222;
+    border-bottom: 2px solid #004085;
+    padding-bottom: 8px;
+  }
+  
+  .billing-card {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .billing-item {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    padding: 10px 0;
+    font-size: 1rem;
+    color: #000000;
+  }
+  
+  .billing-item:not(:last-child) {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  hr {
+    margin: 20px 0;
+    border: none;
+    border-top: 1px solid #ccc;
+  }
+  
+  .billing-total {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #e3762d;
+    margin-bottom: 24px;
+  }
+  
+  
+  .confirm-btn {
+    background: linear-gradient(135deg, #4ad0f8, #55a1f3);
+    color: white;
+    font-weight: 700;
+    font-size: 1.15rem;
+    padding: 14px 0;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 8px 15px rgba(0, 64, 133, 0.3);
+    transition: all 0.3s ease;
+  }
+  
+  .confirm-btn:hover {
+    background: linear-gradient(135deg, #529fcf, #287cd7);
+    box-shadow: 0 12px 20px rgba(0, 40, 88, 0.5);
+    transform: translateY(-2px);
+  }
+  
+  
+  @media (max-width: 900px) {
+    .checkout-wrapper {
+      flex-direction: column;
+      padding: 20px;
+    }
+    .billing-section, .courier-section {
+      flex: 1 1 100%;
+    }
+  }
+  
