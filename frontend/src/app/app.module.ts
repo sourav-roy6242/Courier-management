@@ -10,6 +10,9 @@ import { AddCourierComponent } from './courier/add-courier/add-courier.component
 import { ListCourierComponent } from './courier/list-courier/list-courier.component';
 import { DeleteCourierComponent } from './courier/delete-courier/delete-courier.component';
 import { CourierService } from './courier/courier.service';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+
 
 
 const routes: Routes = [
@@ -27,6 +30,9 @@ const routes: Routes = [
     AddCourierComponent,
     ListCourierComponent,
     DeleteCourierComponent,
+    AboutUsComponent,
+    ContactUsComponent,
+
   
   ],
   imports: [

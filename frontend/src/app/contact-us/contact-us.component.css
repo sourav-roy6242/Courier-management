@@ -1,0 +1,114 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #e0f7fa, #f9f9f9);
+    color: #333;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  
+  .contact-section {
+    min-height: 80vh;
+    padding: 60px 20px;
+  }
+  
+  .contact-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+  }
+  
+  .contact-info {
+    flex: 1 1 45%;
+  }
+  
+  .sms-form-container {
+    flex: 1 1 45%;
+  }
+  
+  .contact-info p {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    color: #555;
+  }
+  
+  .contact-info i {
+    color: #0d6efd;
+    margin-right: 0.8rem;
+    font-size: 1.25rem;
+    vertical-align: middle;
+  }
+  
+  .contact-link {
+    color: #0d6efd;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .contact-link:hover {
+    color: #0a58ca;
+    text-decoration: underline;
+  }
+  
+  .contact-img {
+    max-width: 250px;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+    transition: transform 0.4s ease;
+  }
+  
+  .contact-img:hover {
+    transform: scale(1.05);
+  }
+  
+
+  .sms-card.glass {
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .sms-card.glass:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sms-card .form-control {
+    border: 1px solid #ced4da;
+    border-radius: 12px;
+    font-size: 1rem;
+  }
+  
+  .sms-card .form-label {
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: #333;
+  }
+  
+  .sms-card .btn-primary {
+    background: linear-gradient(to right, #0d6efd, #4e8ef7);
+    border: none;
+  }
+  
+  .sms-card .btn-primary:hover {
+    background: linear-gradient(to right, #0b5ed7, #3a76e5);
+  }
+  
+  
+  @media (max-width: 768px) {
+    .contact-wrapper {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .contact-info,
+    .sms-form-container {
+      flex: 1 1 100%;
+    }
+  }
+  
